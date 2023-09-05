@@ -1,0 +1,76 @@
+:root{
+    --preto: #161623;
+
+    --fundo: #191919;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: var(--fundo);
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+canvas{
+    background-color: var(--preto);
+    border: 1px solid gray;
+    object-fit: cover;
+}
+
+.pontos{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+}
+
+.valor_pontos{
+    font-weight: 700;
+    font-size: 4.5rem;
+    display: block;
+    margin-top: -10px;
+}
+
+.menu{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.gameOver{
+    text-transform: uppercase; /*tudo maiusculo*/
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.pontos_final{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.btn-play{
+    border-radius: 100px;
+    border: none;
+    padding: 10px 15px 10px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
