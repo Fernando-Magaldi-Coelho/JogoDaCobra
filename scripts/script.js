@@ -10,6 +10,18 @@ const menu = document.querySelector(".menu")
 const BtnPlay = document.querySelector(".btn-play") 
 
 
+function getDificuldadeFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const dificuldade = urlParams.get('dificuldade');
+    return dificuldade ? parseInt(dificuldade) : 300; // Valor padrão: 300
+}
+
+// Configurar a dificuldade com base no valor da URL
+const dificuldade = getDificuldadeFromURL();
+
+// Agora você pode usar a variável 'dificuldade' conforme necessário no seu código JavaScript para o jogo.
+console.log('Dificuldade configurada:', dificuldade);
+
 const size = 30;
 
 /*
@@ -215,6 +227,7 @@ const GameOver = () =>{
 
 
 
+
 const gameLoop = () => {
 
     clearInterval(LoopId)
@@ -230,11 +243,13 @@ const gameLoop = () => {
     CheckComeu()
     CheckCollision()
 
-    LoopId = setTimeout(() => {
+    
+
+    let = LoopId = setTimeout(() => {
 
         gameLoop()
 
-    }, 200)
+    }, dificuldade)
 
     
 }
@@ -307,7 +322,6 @@ comida = {
     color: randomColor()
 }
 
-
-
-
 })
+
+

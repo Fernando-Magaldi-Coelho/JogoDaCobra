@@ -4,11 +4,61 @@
     --fundo: #191919;
 }
 
+.modo{
+    display: inline;
+    padding: 10px;
+}
+
+h2 a{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    color: var(--fundo);
+    transition: background-color 0.5s linear;
+}
+
+h2 a:hover{
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+a h2{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--fundo);
+    background-color: white;
+    text-decoration: none;
+    outline: none;
+    transition: background-color 0.5s linear;
+}
+
+a h2:hover{
+    color: white;
+    background-color: var(--fundo);
+}
+
+
+img{
+    height: 270px;
+    width: 500px;
+    margin: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    outline: none;
 }
 
 body{
