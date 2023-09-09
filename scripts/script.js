@@ -7,7 +7,10 @@ const perdeu = new Audio('./assents/aud/lose.wav')
 const pontos = document.querySelector('.valor_pontos')
 const PontosFinal = document.querySelector('.pontos_final > span')
 const menu = document.querySelector(".menu")
-const BtnPlay = document.querySelector(".btn-play") 
+const BtnPlay = document.querySelector(".btn-play")
+const cabecaImage = new Image();
+cabecaImage.src = './assents/img/cabeca.jpg'; // Certifique-se de que o caminho corresponda ao local da imagem em seu projeto.
+
 
 
 function getDificuldadeFromURL() {
@@ -82,18 +85,33 @@ const DrawComida = () => {
 
 
 const DrawCobra = () => {
-    ctx.fillStyle = "red";
-    // ctx.fillRect(cobra[0].x, cobra[0].y, size, size)
-
     cobra.forEach((position, index) => {
+        if (index === cobra.length - 1) {
+            // Desenhe a cabeça da cobra usando a imagem e aplique a rotação adequada
+            ctx.save(); // Salvar o contexto atual
+            ctx.translate(position.x + size / 2, position.y + size / 2); // Mover o contexto para o centro da cabeça da cobra
 
-        if(index == cobra.length - 1 /*Posição se a cobra tiver com a largura -1 (cabeça) vais ser tal cor*/){
-            ctx.fillStyle = "yellow";
+            // Determinar a rotação com base na direção atual
+            if (direction === "right") {
+                ctx.rotate(0);
+            } else if (direction === "left") {
+                ctx.rotate(Math.PI);
+            } else if (direction === "down") {
+                ctx.rotate(Math.PI / 2);
+            } else if (direction === "up") {
+                ctx.rotate((3 * Math.PI) / 2);
+            }
+
+            ctx.drawImage(cabecaImage, -size / 2, -size / 2, size, size); // Desenhar a imagem
+            ctx.restore(); // Restaurar o contexto
+        } else {
+            // Desenhe o corpo da cobra usando a cor vermelha
+            ctx.fillStyle = "#9BEA4C";
+            ctx.fillRect(position.x, position.y, size, size);
         }
+    });
+};
 
-        ctx.fillRect(position.x, position.y, size, size)
-    })
-}
 
 const moveCobra = () => {
     if (!direction) return; // Se direction for undefined, não permita o movimento da cobra
